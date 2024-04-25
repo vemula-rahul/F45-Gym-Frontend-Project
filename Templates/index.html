@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gym</title>
+    <link rel="stylesheet" type="text/css" href="{{ css }}">
+</head>
+<body>
+
+    <!-- navbar -->
+
+    <!-- <nav class="navbar">
+        <h1 class="logo">F45</h1>
+        
+        <ul class="navlinks">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#my-section">ision</a></li>
+            <li><a href="#motivation">Motivation</a></li>
+            <li><a href="#facilities">Facilities</a></li>
+            <li><a href="#">About</a></li>
+            <li class="ctn"><a href="#my-contact">Contact</a></li>
+        </ul>
+        <img src="menu-button.png" alt="" class="menu-btn">
+    </nav> -->
+
+    <nav class="navbar">
+        <h1 class="logo">F45</h1>
+        <!-- <img src="logo.png" alt="" class="logo-btn"> -->
+        <ul class="navlinks">
+            <li class="active"><a href="{{ url_for('index') }}">Home</a></li>
+            <li><a href="#my-section" onclick="scrollToEnd('my-section')">Vision</a></li>
+            <li><a href="#motivation">Motivation</a></li>
+            <li><a href="#facilities">Facilities</a></li>
+            <li><a href="#Reviews">Reviews</a></li>
+            <li><a href="{{ url_for('programs') }}#gotochart">Analytics</a></li>
+            <li><a href="{{ url_for('About_me') }}">About</a></li>
+            <li class="ctn"><a href="{{ url_for('programs') }}">Programs</a></li>
+            <!-- <li class="ctn"><a href="programs.html">Programs</a></li> -->
+        </ul>
+        <img src="{{url_for('static', filename='menu-button.png')}}" alt="" class="menu-btn">
+    </nav>
+    <main class="content">
+    <header>
+        <div class="header-content">
+            <h1>Welcome to F45
+            </h1>
+            <h2>Looking to achieve your fitness goals<span class="blink">?</span></h2>
+            <button id="button" class="ctn">Join Now</button>
+            <!-- <a href="#" class="button" id="button">Join Now</a> -->
+        </div>
+      
+        <div class="popup">
+            <div class="popup_content">
+                {% if error %}
+                     <script>
+                        alert("{{ error }}");
+                    </script>
+                {% endif %}
+                <head>
+                    <title> Sign In Form</title>
+                    <link rel="stylesheet" href="{{url_for('static', filename='login6.css')}}"  />
+                  </head>
+                  <form id="login-form" class = "login-form-class" action="/login" method="POST">
+                    <h2>Login</h2>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email"  name="email" placeholder="Username" required>
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" placeholder = "Password" required>
+                    <input type="submit" value="Login">
+                    <p>Don't have an account? <a href="#" id="toggle-signup">Sign up here</a></p>
+                  </form>
+                  
+                  <form id="signup-form" class="signup-form-class" action="{{ url_for('signup') }}" method="POST">
+                    <h2>Sign Up</h2>
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" placeholder="Name" required>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" placeholder="Email Address" required>
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" placeholder="Password" required>
+                    <label for="phone">Phone number:</label>
+                    <input type="tel" id="phone" name="phone" placeholder="Phone Number" required>
+                    <input type="submit" value="Sign up">
+                    <p>Already have an account? <a href="#" id="toggle-login">Login here</a></p>
+                  </form>
+                  <script>
+                const loginForm = document.getElementById("login-form");
+                const signupForm = document.getElementById("signup-form");
+                const toggleSignup = document.getElementById("toggle-signup");
+                const toggleLogin = document.getElementById("toggle-login");
+                
+                toggleSignup.addEventListener("click", () => {
+                  loginForm.style.display = "none";
+                  signupForm.style.display = "block"
+                });
+                
+                toggleLogin.addEventListener("click", () => {
+                    loginForm.style.display = "block";
+                  signupForm.style.display = "none";
+                  
+
+                });
+                
+                // loginForm.addEventListener("submit", (event) => {
+                //   event.preventDefault();
+                //   // Validate login credentials and log in user
+                // });
+                
+                // signupForm.addEventListener("submit", (event) => {
+                //   event.preventDefault();
+                //   // Validate signup inputs and create new user account
+                // });
+                
+                  </script>
+                <button class="close "id="close-popup">X</button>
+            </div>
+        </div>
+        <script>
+            document.getElementById("button").addEventListener("click", function(){
+                document.querySelector(".popup").style.display = "flex";
+            })
+
+            document.querySelector(".close").addEventListener("click", function(){
+                document.querySelector(".popup").style.display = "none";
+            })
+
+        </script>
+    </header>
+
+    <!-- section of upcoming events -->
+
+    <section id = "my-section" class="events">
+        <div class="title">
+            <h1>Our Commitment to Inclusive Fitness</h1>
+            <div class="line"></div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <img src="{{url_for('static', filename='image1.jpg')}}"  alt="">
+                <h4>The F45 Experience</h4>
+                <p>The F45 Experience is a welcoming and inclusive gym that's dedicated to helping people of all ages and fitness levels achieve their goals. Our experienced trainers and state-of-the-art facilities provide the perfect environment to transform your body, mind, and spirit. Join us today and experience the difference of a truly supportive fitness community.</p>
+                <a href="{{ url_for('programs') }}" class="ctn">Learn More</a>
+            </div>
+
+            <div class="col">
+                <img src="{{url_for('static', filename='image2.jpg')}}" alt="">
+                <h4>Fitness Is for Everyone</h4>
+                <p>Fitness Is for Everyone at our gym. Our mission is to make fitness accessible to people of all ages, abilities, and goals. With personal training, group fitness, and nutrition guidance, we're committed to helping you achieve your fitness goals. Join our community today and discover the joy and benefits of a healthy lifestyle.</p>
+                <a href="{{ url_for('programs') }}" class="ctn">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    
+    <div class="container">
+        <div id = "motivation" class="explore">
+        </div>
+        <div class="explore-content">
+            <h1>Dont think Begin today</h1>
+            <div class="line"></div>
+        <p>Taking action towards your fitness goals is often easier said than done. Doubts and insecurities can hold us back, but the truth is that progress begins with action.</p>
+        <a href="{{ url_for('programs') }}" class="ctn">Learn More</a>
+        </div>
+    </div>
+    
+
+    <section id = "facilities"class="tours">
+        <div class="row">
+            <div class="col content-col">
+                <h1>Top Notch Facilities</h1>
+                <div class="line">
+                </div>
+                <p>At our gym, we believe in providing top-notch facilities that help our clients achieve their fitness goals. Our state-of-the-art equipment is regularly maintained to ensure peak performance, and our facilities are kept clean and hygienic at all times. With a range of equipment and amenities available, from free weights to cardio machines and group fitness classes, our clients have everything they need to achieve their desired level of fitness. Come experience our top-notch facilities and take your fitness journey to the next level.</p>
+                <a href="{{ url_for('programs') }}" class="ctn">Learn More</a>
+            </div>
+            <div class="col image-col">
+                <div class="image-gallery">
+                    <img src="{{url_for('static', filename='F1.jpg')}}" alt="">
+                    <img src="{{url_for('static', filename='F2.jpg')}}" alt="">
+                    <img src="{{url_for('static', filename='F3.jpg')}}" alt="">
+                    <img src="{{url_for('static', filename='F4.jpg')}}" alt="">
+                </div>
+            </div>
+        </div>    
+    </section>
+    <div class="review-class" id="Reviews">
+        
+        <div class="review-container">
+            <div class="wrapper">
+                <div class="card">
+                    <div class="card-thumb">
+                        <img src="{{url_for('static', filename='Review1.jpg')}}" class="client-img" alt="">
+                        <span class="client-name">John Jacob</span>
+                    </div>
+                    <div class="card-body">
+                        <p class="review">I love this place. I highly recommend this place to anyone who wants to get in shape. The trainers are really awesome and helpful, they make you feel really comfortable. The 45 min training goes super-fast and you really enjoy doing it. Every day is a new training, so it is never boring.</p>
+                        <div class="rating">
+                            <img src="{{url_for('static', filename='star-fill.png')}}" class="star" alt="">
+                            <img src="{{url_for('static', filename='star-fill.png')}}"  class="star" alt="">
+                            <img src="{{url_for('static', filename='star-fill.png')}}"  class="star" alt="">
+                            <img src="{{url_for('static', filename='star-fill.png')}}"  class="star" alt="">
+                            <img src="{{url_for('static', filename='star-no-fill.png')}}"  class="star" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-thumb">
+                        <img src="{{url_for('static', filename='Review2.jpg')}}"  class="client-img" alt="">
+                        <span class="client-name">Hrithik Roshan</span>
+                    </div>
+                    <div class="card-body">
+                        <p class="review">By far the best facility around. This new location is mint from the staff, to the equipment, to the facility itself. From the ownership, to management, to the trainers, by far the nicest and most knowledgeable staff in the business today. I would not hesitate to recommend F45 to anyone. I am certainly satisfied thus far and have been blown away by my experience at this new facility.</p>
+                        <div class="rating">
+                            <img src="{{url_for('static', filename='star-fill.png')}}" class="star" alt="">
+                            <img src="{{url_for('static', filename='star-fill.png')}}"  class="star" alt="">
+                            <img src="{{url_for('static', filename='star-fill.png')}}"  class="star" alt="">
+                            <img src="{{url_for('static', filename='star-fill.png')}}"  class="star" alt="">
+                            <img src="{{url_for('static', filename='star-no-fill.png')}}"  class="star" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-thumb">
+                        <img src="{{url_for('static', filename='Review3.jpg')}}" class="client-img" alt="">
+                        <span class="client-name">james Cameron</span>
+                    </div>
+                    <div class="card-body">
+                        <p class="review">The equipment at planet fitness is the greatest the open hours are perfect for my schedule and the staff is very helpful and courteous. When I go to workout there are plenty of equipment to use and there is no wait to use any of their equipment. Keep up the great work F45!</p>
+                        <div class="rating">
+                            <img src="{{url_for('static', filename='star-fill.png')}}" class="star" alt="">
+                            <img src="{{url_for('static', filename='star-fill.png')}}"  class="star" alt="">
+                            <img src="{{url_for('static', filename='star-fill.png')}}"  class="star" alt="">
+                            <img src="{{url_for('static', filename='star-fill.png')}}"  class="star" alt="">
+                            <img src="{{url_for('static', filename='star-no-fill.png')}}"  class="star" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="indicators">
+                <button class="active"></button>
+                <button></button>
+                <button></button>
+            </div>
+        </div>
+    </div>
+
+
+    <section  id="my-contact"class="footer">
+        <p>12810 University Club Dr, 33612,Florida, USA | Phone : 800-123-456 | Email : f45@gmail.com</p>
+    </section>
+
+    <!-- review -->
+    
+    </main>
+
+    <script>
+//         const joinBtn = document.getElementById("join-btn");
+//         joinBtn.addEventListener("click", () => {
+//             window.location.href = "subscription.html";
+//   });
+
+  const menuBtn = document.querySelector('.menu-btn');
+  const navLinks = document.querySelector('.navlinks'); 
+  const headerContent = document.querySelector('.header-content');
+
+  const navBar = document.querySelector('.navbar');
+
+  menuBtn.addEventListener("click",()=>{
+    navLinks.classList.toggle('mobile-menu')
+    headerContent.classList.toggle('header-content-mobile-view');
+    navBar.classList.toggle('navBar-mobile-view')
+  })
+
+
+  const images = ["{{url_for('static', filename='backpack.jpg')}}", "{{url_for('static', filename='F1.jpg')}}", "{{url_for('static', filename='Gym2.jpg')}}", "{{url_for('static', filename='Gym4.jpg')}}"];
+    let index = 0;
+
+function changeBackground() {
+  const background = document.querySelector(".explore");
+  background.style.backgroundImage = `url(${images[index]})`;
+  index++;
+  if (index === images.length) {
+    index = 0;
+  }
+}
+
+setInterval(changeBackground, 3000);
+
+    </script>
+    <script src="{{url_for('static', filename='app.js')}}" ></script>
+</body>
+</html>

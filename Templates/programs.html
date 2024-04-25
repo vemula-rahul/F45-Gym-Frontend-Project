@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gym</title>
+  <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='programs_new_css.css')}}">
+</head>
+
+<body>
+
+  <!-- navbar -->
+
+  <!-- <nav class="navbar">
+        <h1 class="logo">F45</h1>
+        
+        <ul class="navlinks">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#my-section">vision</a></li>
+            <li><a href="#motivation">Motivation</a></li>
+            <li><a href="#facilities">Facilities</a></li>
+            <li><a href="#">About</a></li>
+            <li class="ctn"><a href="#my-contact">Contact</a></li>
+        </ul>
+        <img src="menu-button.png" alt="" class="menu-btn">
+    </nav> -->
+
+  <nav class="navbar">
+    <h1 class="logo">F45</h1>
+    <!-- <img src="logo.png" alt="" class="logo-btn"> -->
+    <ul class="navlinks">
+      <li class="active"><a href="{{ url_for('index') }}">Home</a></li>
+      <li><a href="{{ url_for('index') }}#my-section" onclick="scrollToEnd('my-section')">Vision</a></li>
+      <li><a href="{{ url_for('index') }}#motivation">Motivation</a></li>
+      <li><a href="{{ url_for('index') }}#facilities">Facilities</a></li>
+      <li><a href="{{ url_for('index') }}#Reviews">Reviews</a></li>
+      <li><a href="#gotochart">Analytics</a></li>
+      <li><a href="{{ url_for('About_me') }}">About</a></li>
+      <li class="ctn"><a href="{{ url_for('programs') }}">Programs</a></li>
+      <!-- <li class="ctn"><a href="programs.html">Programs</a></li> -->
+    </ul>
+    <img src="{{url_for('static', filename='menu-button.png')}}" alt="" class="menu-btn">
+  </nav>
+  <section id="programs">
+    <h2>Our Programs</h2>
+    <div class="programs-container">
+      <div class="program">
+        <div class="program-header program-header1">
+
+        </div>
+        <div class="program-details">
+          <p>Our weight training program is designed to help you build strength and increase muscle mass. Our expert
+            trainers will create a customized program for you based on your fitness level and goals.</p>
+          <div class="program-price">
+            <a href="#" class="button" id="button">Join Now</a>
+          </div>
+        </div>
+      </div>
+      <div class="program">
+        <div class="program-header program-header2">
+          <!-- <h3>Cardio Vascular</h3>
+            <div class="program-duration">
+              <span>1 month</span>
+              <span>2 months</span>
+              <span>6 months</span>
+            </div> -->
+        </div>
+        <div class="program-details ">
+          <p>Our cardio vascular program is perfect for those looking to improve their cardiovascular health and
+            endurance. We offer a variety of cardio machines and classes to keep your workouts interesting.</p>
+          <div class="program-price">
+            <a href="#" class="button" id="button">Join Now</a>
+          </div>
+        </div>
+      </div>
+      <div class="program">
+        <div class="program-header program-header3">
+          <!-- <h3>Group Fitness</h3>
+            <div class="program-duration">
+              <span>1 month</span>
+              <span>2 months</span>
+              <span>6 months</span>
+            </div> -->
+        </div>
+        <div class="program-details">
+          <p>Our group fitness program is perfect for those who enjoy working out with others. We offer a variety of
+            classes including yoga, spin, and HIIT. Our certified instructors will guide you through each class to
+            ensure you get the most out of your workout.</p>
+          <div class="program-price">
+            <!-- <span>$60</span>
+              <span>$110</span>
+              <span>$300</span> -->
+            <a href="#" class="button" id="button">Join Now</a>
+          </div>
+        </div>
+      </div>
+      <div class="program">
+        <div class="program-header program-header4">
+          <!-- <h3>Personal Training</h3>
+            <div class="program-duration">
+              <span>1 month</span>
+              <span>2 months</span>
+              <span>6 months</span>
+            </div> -->
+        </div>
+        <div class="program-details">
+          <p>Our personal training program is perfect for those looking for one-on-one attention and a customized
+            workout plan. Our certified trainers will work with you to create a plan based on your fitness level and
+            goals.</p>
+          <div class="program-price">
+            <!-- <span>$80</span>
+              <span>$150</span>
+              <span>$400</span> -->
+            <a href="#" class="button" id="button">Join Now</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div id="gotochart">
+
+    <head>
+      <meta charset="utf-8" />
+      <title>Chart.js examples</title>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.js"></script>
+    </head>
+
+    <style width="100" !important, height="50" !important>
+    </style>
+
+    <body>
+      <div class="chart-class">
+        <canvas id="doughnut-chart" width="100" height="50" chart="style"></canvas>
+        <script>
+          new Chart(document.getElementById("doughnut-chart"), {
+            type: 'doughnut',
+            data: {
+              labels: ["Weight Training", "Cardio Vascular Training", "Group Training", "Personal Training", "Yoga"],
+              datasets: [
+                {
+                  label: "Percentage (of 100)",
+                  backgroundColor: ["#191970", "#4169E1", "#4682B4", "#87CEEB", "#ADD8E6"],
+                  data: [20, 35, 35, 10, 10]
+                }
+              ]
+            },
+            options: {
+              title: {
+                display: true,
+                text: 'Gym Crowd Program Distribution'
+              }
+            }
+          });
+        </script>
+        </section>
+      </div>
+    </body>
+  </div>
+
+
+  <script>
+    //         const joinBtn = document.getElementById("join-btn");
+    //         joinBtn.addEventListener("click", () => {
+    //             window.location.href = "subscription.html";
+    //   });
+
+    const menuBtn = document.querySelector('.menu-btn');
+    const navLinks = document.querySelector('.navlinks');
+    const headerContent = document.querySelector('.header-content');
+
+    const navBar = document.querySelector('.navbar');
+
+    menuBtn.addEventListener("click", () => {
+      navLinks.classList.toggle('mobile-menu')
+      headerContent.classList.toggle('header-content-mobile-view');
+      navBar.classList.toggle('navBar-mobile-view')
+    })
+
+
+    const images = ["{{url_for('static', filename='backpack.jpg')}}", "{{url_for('static', filename='F1.jpg')}}", "{{url_for('static', filename='F2.jpg')}}"];
+    let index = 0;
+
+    function changeBackground() {
+      const background = document.querySelector(".explore");
+      background.style.backgroundImage = `url(${images[index]})`;
+      index++;
+      if (index === images.length) {
+        index = 0;
+      }
+    }
+
+    setInterval(changeBackground, 3000);
+
+
+
+  </script>
+  <script src="{{url_for('static', filename='app.js')}}"></script>
+</body>
+
+</html>
