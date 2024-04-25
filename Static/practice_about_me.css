@@ -1,0 +1,788 @@
+* {
+    margin: 0;
+    padding : 0;
+    box-sizing: border-box;
+} 
+
+.popup ul head1{
+    color: black;
+}
+
+.popup {
+    background: rgba(0,0,0,0.6);
+    position: absolute;
+    width: 300px;
+    background: #fff;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    border-radius: 5px;
+    display: none;
+   
+}
+
+.popup_content{
+    width: 500px;
+    background: none;
+    padding: 20px;
+    border-radius: 5px;
+    position: relative;
+}
+
+.close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    font-size: 18px;
+}
+.button{
+    padding: 8px 15px;
+    background: red;
+    border-radius: 5px;
+    color: whitesmoke
+}
+
+
+
+/* .adjust {
+    position: relative;
+} */
+
+body {
+    overflow-x: hidden;
+}
+
+
+.content {
+    top: 77px;
+}
+
+header {
+    width : 100vw;
+    height : 100vh;
+    background-position: center;
+    background-size: cover;
+    background-image: url(nature2.jpg);
+    display: flex;
+    align-items : center;
+    justify-content: center;
+}
+
+a {
+    text-decoration : none;
+    color: whitesmoke;
+}
+
+/* navbar */
+
+.navbar {
+    display: flex;
+    position: fixed;
+    top : 0;
+    left : 0;
+    width: 100%;
+    justify-content : space-between;
+    padding:20px;
+    color: whitesmoke;
+    background-color: rgb(146, 130, 247);
+    z-index: 9999;
+}
+
+.navlinks {
+    display: flex;
+    align-items : center;
+}
+
+ul {
+    list-style : none;
+
+}
+
+.active {
+    color:red;
+    text-decoration: none;
+    font-weight : bold;
+}
+
+
+
+.navlinks li {
+    margin : 0 30px;
+    color : whitesmoke;
+}
+
+.header-content {
+
+    margin-bottom: 150px;
+    color:whitesmoke;
+    text-align: center;
+    
+
+}
+
+.header-content h2 {
+    font-size : 4vmin;
+    margin-bottom: 40px;
+}
+
+
+.blink {
+    animation: blink-animation 0.8s 5;
+  }
+  @keyframes blink-animation {
+    0% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+@keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translate(-50%, -0%);
+    }
+    to {
+      opacity: 1;
+      transform: translate(-0%, -0%);
+    }
+
+}
+
+.line {
+    width : 150px;
+    height: 4px;
+    background : red;
+    margin:10px auto;
+    border-radius: 5px;
+}
+
+.header-content h1 {
+    font-size: 7vmin;
+    margin-top : 50px;
+    margin-bottom:30px;
+    animation: fadeIn 2s ease-in-out forwards;
+    
+
+}
+
+.ctn {
+ 
+        background-color: red;
+        color: white;
+        border: 2px solid red;
+        padding : 8px 15px;
+        border-radius : 5px;
+      
+}
+
+
+.menu-btn {
+    position : absolute;
+    top : 30px;
+    right : 30px;
+    width : 40px;
+    cursor: pointer;
+    display : none;
+}
+
+
+/* events */
+
+section {
+    width : 80%;
+    margin : 80px auto;
+    
+
+
+}
+
+.title  {
+    text-align : center;
+    font-size: 4vmin;
+    color : rgb(146, 130, 247);
+    top:80px;
+}
+li a {
+    color : white;
+}
+
+
+.row {
+    display: flex;
+    width : 100%;
+    justify-content: space-between;
+    align-items : center;
+    
+}
+
+.row .col {
+    display : flex;
+    flex-direction : column;
+    align-items : center;
+    
+}
+
+
+.events .row {
+    margin-top: 50px ;
+    
+}
+
+h4 {
+    margin: 20px auto;
+    font-size: 4vmin;
+    color: rgb(146, 130, 247);
+  
+}
+
+p {
+    padding: 0px 30px;
+   
+}
+
+.events .ctn {
+    margin-top : 30px;
+}
+
+
+
+.container {
+    
+    width : 100%;
+    height: 80vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+
+.explore {
+    width : 70%;
+    height: 80vh;
+    background-image: url(backpack.jpg);
+    background-position: center;
+    background-size : cover;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    /* adding for the transition */
+    position: relative;
+    transition: background-image 1s ease-in-out;
+    flex: 1;
+       
+}
+.explore-content {
+    width : 30%;
+    padding : 50px;
+    color: black;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.explore-content h1{
+    font-size : 7vmin;
+    margin-top : 50px;
+    color: rgb(146, 130, 247);
+}
+
+.explore-content .ctn{
+    margin-top : 30px;
+
+}
+
+.explore-content .line {
+    margin-bottom : 50px;
+}
+
+
+.logo-btn {
+    
+        max-width: 50px;
+        height: auto;
+      
+}
+
+
+
+.content-col {
+    width : 40%;
+}
+
+.image-col {
+    width : 60%;
+}
+
+.tours .image-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    width : 100%;
+    align-items: center;
+}
+
+.image-gallery img {
+    max-width : 300px;
+    margin : 10px;
+}
+
+.content-col h1 {
+    font-size: 7vmin;
+    color:  rgb(146, 130, 247);
+}
+
+
+
+.content-col p {
+    padding : 0;
+    margin : 30px auto;
+}
+
+.content-col .ctn {
+    margin-left: -10px;
+}
+
+.footer {
+    width: 100%;
+    height : 100px;
+    padding:20px 80px;
+    margin : 0;
+    background: #484872;
+    text-align: center;
+    color: white;
+}
+
+
+
+/* Reviews css */
+
+
+
+.review-class{
+    width: 100%;
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'dosis';
+    color: #080808;
+    background: linear-gradient(110deg, #fc6a6a 0%, #ffc69d 100%);
+}
+
+.review-container{
+    position: relative;
+    width: 800px;
+    min-width: 150px;
+    min-height: 50px;
+    padding-bottom: 40px;
+    overflow: hidden;
+}
+
+.wrapper{
+    width: 300%;
+    /* 300% 'caz we have 3 cards */
+    min-height: 100%;
+    display: flex;
+    justify-content: space-around;
+    transition: 1s;
+}
+
+.card{
+    width: 800px;
+    min-height: 60vh;
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    margin: 0 10px;
+}
+
+.card-thumb{
+    width: 70%;
+    height: 250px;
+    overflow: hidden;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    position: relative;
+}
+
+.client-img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.client-name{
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+    padding: 5px 20px;
+    background: #fff;
+    text-transform: capitalize;
+    font-size: 14px;
+}
+
+.card-body{
+    width: 120%;
+    /* min-height: 100%; */
+    height: auto;
+    margin-left: 20px;
+    position: relative;
+    padding-bottom: 50px;
+}
+
+.review{
+    font-size: 20px;
+    line-height: 30px;
+    margin-top: 30px;
+    padding:0px;
+}
+
+.rating{
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.star{
+    width: 25px;
+    margin-right: 5px;
+}
+
+.indicators{
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.indicators button{
+    background: none;
+    border: none;
+    outline: none;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    cursor: pointer;
+    margin-left: 5px;
+    transition: .5s;
+}
+
+button.active{
+    width: 40px;
+    border-radius: 50px;
+    background: #fff;
+}
+
+/* ENd reviews */
+
+#programs {
+    background-color: white;
+    padding: 50px 0;
+  text-align: center;
+}
+
+#programs h2 {
+  font-size: 36px;
+  margin-bottom: 50px;
+}
+
+.programs-container {
+  display: flex;
+   flex-wrap: wrap;
+  justify-content: center;
+}
+
+.program {
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin: 20px;
+  max-width: 600px;
+}
+
+.program-header {
+  background-color: rgb(147, 136, 240);
+  border-radius: 5px 5px 0 0;
+  color: #fff;
+  padding: 20px;
+  height: 300px;
+  
+}
+
+.program-header1 {
+    background-image: url("weight\ training.jpg");
+    background-size: cover;
+}
+.program-header2 {
+    background-image: url("cardio.jpg");
+    background-size: cover;
+}
+.program-header3 {
+    background-image: url("Group\ Fitness.jpg");
+    background-size: cover;
+}
+.program-header4 {
+    background-image: url("Personal\ Training.jpg");
+    background-size: cover;
+}
+
+
+
+.program-header h3 {
+  font-size: 24px;
+  margin: 0;
+}
+
+.program-duration {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+
+.program-duration span {
+  font-size: 16px;
+}
+
+.program-details {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 300px;
+}
+
+.program-details p {
+  font-size: 16px;
+  margin: 0;
+}
+
+.program-price {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid #ddd;
+}
+
+.program-price span {
+  font-size: 24px;
+  font-weight: bold;
+}
+.ctn {
+background-color: red;
+        color: white;
+        border: 2px solid red;
+        padding : 8px 15px;
+        border-radius : 5px;
+}
+
+.chart-place {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*mobile device*/
+
+@media only screen and (max-width : 850px ) {
+
+    .menu-btn {
+        display: block;
+    }
+    /* .navbar {
+        padding : 0;
+        display: contents;
+        justify-content : center;
+        background-color : black;
+        
+    } */
+
+    .navbar {
+        padding : 0;
+        position: absolute;
+        height: 100px;
+        background-color: rgb(146, 130, 247);
+    }
+
+    .logo {
+        
+            position : absolute;
+            top : 30px;
+            left:30px;
+    }
+
+    a{
+        color: white;
+    }
+
+    .navlinks {
+        flex-direction: column;
+        width : 100%;
+        height : 100vh;
+        justify-content : center;
+        background : rgb(146, 130, 247);
+        margin-top : -1080px;
+        transition: all 0.75s ease;   
+    }
+    .mobile-menu {
+        margin-top : 0px;
+        border-bottom-right-radius: 40% ;
+    }
+
+
+    .navlinks li {
+        margin : 30px auto;
+
+    }
+    
+
+    .row {
+        flex-direction: column;
+
+
+    }
+    .row .col {
+        margin : 20px auto;
+    }
+    .col img {
+        max-width : 90%;
+    }
+
+    .explore-content {
+        width : 100%;
+    }
+    .tours .col {
+        width : 100%;
+    }
+
+    .image-gallery {
+        justify-content: center;
+        align-items: center;
+    }
+
+    .image-gallery .img {
+        width : 90%;
+    }
+
+    .footer {
+        padding : 10px;
+    }
+
+    .header-content-mobile-view h1 {
+        animation: none;
+    }
+    .container {
+    width : 100%;
+    height: 120vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    }
+    .explore {
+        width : 100%;
+        height: 80vh;
+        background-image: url(backpack.jpg);
+        background-position: center;
+        background-size : cover;
+        background-repeat: no-repeat;
+        overflow: hidden;
+        /* adding for the transition */
+        position: relative;
+        transition: background-image 1s ease-in-out;
+        flex: 1;
+           
+    }
+
+    .review-container{
+        width: 90%;
+        margin: auto;
+    }
+    .card{
+        flex-direction: column;
+        width: 300px;
+        min-height: 60%;
+    }
+    .card-thumb{
+        width: 100%;
+        border-radius: 10px;
+    }
+    .card-body{
+        width: 100%;
+        min-height: auto;
+        margin-left: 0;
+    }
+
+    .review {
+        padding: 0px 0px;
+    }
+
+    .programs-container {
+        flex-direction: column;
+      }
+      
+      .program {
+        margin: 20px auto;
+      }
+
+    .blink {
+        animation: blink-animation 0.8s infinite;
+      }
+      @keyframes blink-animation {
+        0% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+}
